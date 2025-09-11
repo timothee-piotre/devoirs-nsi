@@ -26,7 +26,7 @@
         
         const downloadBtn = document.createElement("a");
         downloadBtn.textContent = "⬇️ Télécharger";
-        downloadBtn.href = file.url;
+        downloadBtn.onclick = function() {window.location.href = file.url};
         downloadBtn.download = "";
         downloadBtn.className = "btn download";
 
@@ -51,6 +51,7 @@
   </script>
 </body>
 </html>
+
 
 
 
