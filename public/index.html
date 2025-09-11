@@ -25,9 +25,10 @@
         title.textContent = file.name;
 
         // Boutons
-        const previewBtn = document.createElement("button");
-        previewBtn.textContent = "👁️ Aperçu";
-        previewBtn.className = "btn";
+        const iframe = document.createElement("iframe");
+        iframe.src = file.url;
+        iframe.className = "file-preview";
+        iframeContainer.appendChild(iframe);
         
         const downloadBtn = document.createElement("a");
         downloadBtn.textContent = "⬇️ Télécharger";
@@ -39,18 +40,7 @@
         const iframeContainer = document.createElement("div");
         iframeContainer.className = "iframe-container";
 
-        previewBtn.addEventListener("click", () => {
-          if (iframeContainer.innerHTML === "") {
-            const iframe = document.createElement("iframe");
-            iframe.src = file.url;
-            iframe.className = "file-preview";
-            iframeContainer.appendChild(iframe);
-          } else {
-            iframeContainer.innerHTML = "";
-          }
-        });
-
-        div.appendChild(title);
+        div.appendChild(iframe);
         div.appendChild(previewBtn);
         div.appendChild(downloadBtn);
         div.appendChild(iframeContainer);
@@ -63,3 +53,4 @@
   </script>
 </body>
 </html>
+
