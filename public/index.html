@@ -23,12 +23,6 @@
         // Nom du fichier
         const title = document.createElement("h3");
         title.textContent = file.name;
-
-        // Boutons
-        const iframe = document.createElement("iframe");
-        iframe.src = file.url;
-        iframe.className = "file-preview";
-        iframeContainer.appendChild(iframe);
         
         const downloadBtn = document.createElement("a");
         downloadBtn.textContent = "⬇️ Télécharger";
@@ -39,6 +33,10 @@
         // Conteneur pour l'iframe (vide au début)
         const iframeContainer = document.createElement("div");
         iframeContainer.className = "iframe-container";
+        const iframe = document.createElement("iframe");
+        iframe.src = file.url;
+        iframe.className = "file-preview";
+        iframeContainer.appendChild(iframe);
 
         div.appendChild(iframe);
         div.appendChild(previewBtn);
@@ -53,4 +51,5 @@
   </script>
 </body>
 </html>
+
 
