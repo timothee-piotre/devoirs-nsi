@@ -32,16 +32,7 @@
         downloadBtn.download = "";
         downloadBtn.className = "btn download";
 
-        // Conteneur pour l'iframe (vide au début)
-        const iframeContainer = document.createElement("div");
-        iframeContainer.className = "iframe-container";
-        const iframe = document.createElement("iframe");
-        iframe.src = file.url;
-        iframe.className = "file-preview";
-        iframeContainer.appendChild(iframe);
-
         div.appendChild(title);
-        div.appendChild(iframe);
         div.appendChild(downloadBtn);
         div.appendChild(iframeContainer);
 
@@ -53,6 +44,7 @@
   </script>
 </body>
 </html>
+
 
 
 
