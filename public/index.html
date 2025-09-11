@@ -12,7 +12,9 @@
   <script>
     async function loadFiles() {
       const res = await fetch("/api/files");
+      alerte("test");
       const files = await res.json();
+      alert("test");
 
       const container = document.getElementById("files-container");
 
@@ -51,6 +53,7 @@
   </script>
 </body>
 </html>
+
 
 
 
