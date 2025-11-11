@@ -24,9 +24,19 @@ app.get("/api/files", (req, res) => {
   });
 });
 
+app.set('trust proxy', true); // permet à req.ip et x-forwarded-for d'être corrects
+
+app.get('/my-ip', (req, res) => {
+  // méthode robuste : preferer X-Forwarded-For sinon remoteAddress
+  const xff = req.headers['x-forwarded-for'];
+  const ip = (xff && xff.split(',').shift().trim()) || req.socket.remoteAddress;
+  res.json({ ip });
+});
+
 // Servir les fichiers
 app.use("/files", express.static(path.join(__dirname, "files")));
 
 app.listen(PORT, () => {
   console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
 });
+
