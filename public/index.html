@@ -11,6 +11,13 @@
   <div id="files-container"></div>
   <footer><b>PS: pour parler petite <a href="https://camcompete-messagerie.onrender.com">messagerie</a> de ma composition </b>
   <b>©THEvenger</b></footer>
+  <div id="ip"></div>
+<script>
+  fetch('/my-ip')
+    .then(r => r.json())
+    .then(data => document.getElementById('ip').innerText = data.ip)
+    .catch(e => document.getElementById('ip').innerText = 'Erreur : ' + e.message);
+</script>
   <script>
     async function loadFiles() {
       const res = await fetch("/api/files");
@@ -42,6 +49,7 @@
   </script>
 </body>
 </html>
+
 
 
 
